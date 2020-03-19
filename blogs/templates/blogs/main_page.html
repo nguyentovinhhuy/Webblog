@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <h1>Welcome to the forum, here is the list of author</h1>
+        {% if author_list %}
+        <ul>
+            {% for i in author_list %}
+                <li><a href= "{% url 'blogs:author_detail' i.id %}">{{i.name}}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <h1>Alternatively, you can browse by the blogs</h1>
+        <h3><a href= "{% url 'blogs:view_all_blog' %}">See all blogs</a></h3>
+        <h3>New here, <a href= "{% url 'blogs:create_author' %}">become an author!</a></h3>
+    </body>
+
+</html>

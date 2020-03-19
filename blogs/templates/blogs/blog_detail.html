@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+    </head>
+
+    <body>
+        {% if blog %}
+            <h1>{{blog.title}}</h1>
+            <h3>Publihed on: {{blog.pub_date}}</h3>
+            <p>{{blog.blog_text}}</p>
+        {% endif %}
+
+        <h3>Comments</h3>
+        <h4><a href= "{% url 'blogs:create_comment' blog.author.id blog.id %}">Make a comment</a></h4>
+        {% if comment_list %}
+            {% for comment in comment_list %}
+                <h5>{{comment.commentor}} wrote:</h5>
+                <p>{{comment.comment_text}}</p></br>
+            {% endfor %}
+        {% else %}
+            <p>Currently, there is no comment</p>
+        {% endif %}
+    </body>
+
+</html>

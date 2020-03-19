@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <h1>This is where you can view all the blogs in the forum</h1>
+        {% if blog_list %}
+            <ul>
+                {% for blog in blog_list %}
+                    <li><a href= '{% url "blogs:blog_detail" blog.author.id blog.id%}'>{{blog.title}}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h3> There is no blog currently available</h3>
+        {% endif %}
+    </body>
+</html>

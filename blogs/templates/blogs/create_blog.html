@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        
+    </head>
+
+    <body>
+        <form action= "{% url 'blogs:make_blog' author.id %}" method= "post">
+            {% csrf_token %}
+            <label>Title:</label>
+            <input type= "text" name= "blog_title" value=  "{{blog_title}}"></br>
+            <label>Input your blog here:</label></br>
+            <input id= "blog_text" type= "text" name= "blog_text" value="{{blog_text}}" class= "blog_text"></br></br>
+            <input type= "submit" value= "Submit">
+        </form>
+    </body>
+
+</html>

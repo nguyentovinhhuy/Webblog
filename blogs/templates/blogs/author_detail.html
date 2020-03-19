@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        {% if author %}
+        <h1>{{author.name}}</h1>
+        <ul>
+            <li>Name: {{author.name}}</li>
+            <li>Joined: {{author.join_date}}</li>
+            <li>Description: {{author.details}}</li>
+        </ul>
+        <h4><a href= "{% url 'blogs:create_blog' author.id %}">Create a blog</a></h4>
+        <h3>Blogs created</h3>
+        <ul>
+            {% for blog in blog_list %}
+            <li><a href= "{% url 'blogs:blog_detail' author.id blog.id %}">{{blog.title}}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </body>
+
+</html>
